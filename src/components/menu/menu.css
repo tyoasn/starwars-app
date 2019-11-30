@@ -1,0 +1,42 @@
+/*menu css*/
+.menu-container {
+	background-color: rgba(247, 228, 32,.8);
+	padding: 2px 20px 2px 20px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+}
+.menu {
+	display: inline-flex;
+	list-style: none;
+	float: right;
+	padding: 0px 20px 0px 20px;
+}
+.logo-menu {
+	width: 100px;
+	fill: #000;
+}
+@media only screen and (max-width: 1024px) {
+	.logo-menu {
+		width: 60px;
+		height: auto;
+	}
+}
+.menu-item {
+	color: #222;
+	margin-right: 20px;
+	font-family: 'Russo One';
+	border-bottom: transparent;
+}
+.menu-item a {
+	text-decoration: none;
+}
+.menu-item a:hover {
+	border-bottom: 2px solid #222;
+	color: #222;
+	transition: all ease .2s;
+}
+.menu-item .active {
+	border-bottom: 2px solid #222;
+}

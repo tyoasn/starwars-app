@@ -1,0 +1,31 @@
+/*banner css*/
+
+.logo {
+	width: 400px;
+	fill: #fff;
+	margin: 0 auto;
+}
+@media only screen and (max-width: 1024px) {
+	.logo {
+		width: 70%;
+	}
+	.sub-title {
+		font-size: 18px;
+		line-height: 24px;
+	}
+}
+
+#banner {
+	background-color: transparent;
+	height: 100vh;
+	width: 100vw;
+	display: flex; 
+	align-items: center;
+	justify-content: center; 
+}
+
+.container-logo {
+	text-align: center;
+	color: #fff;
+}
+

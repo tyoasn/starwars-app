@@ -1,0 +1,142 @@
+/*main css*/
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Russo One';
+	letter-spacing: 1px;
+}
+h1 {
+	font-size: 30px;
+	line-height: 35px;
+}
+h2 {
+	font-size: 24px;
+	line-height: 30px;
+}
+body {
+	font-family: 'Nunito', sans-serif;
+	background-color: #272b30;
+	color: #fff;
+}
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+a:hover {
+	color: #fff;
+}
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+p {
+	margin-bottom: 20px!important;
+}
+#content {
+	margin-top: 100px;
+}
+.container {
+	max-width: 1175px;
+	width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media only screen and (max-width: 1024px) {
+	.container {
+		max-width: 768px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.container {
+		max-width: 500px;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.container {
+		max-width: 300px;
+	}
+}
+.text-center {
+	text-align: center;
+}
+.txt-yellow {
+	color: #f7e420;
+}
+.container-btn {
+	margin: 40px 0px 40px 0px;
+}
+.btn-1 {
+	padding: 10px 30px 10px 30px;
+	border: 2px solid #f7e420;
+	border-radius: 10px;
+	color: #f7e420;
+	text-decoration: none;
+	display: inline-block;
+}
+.btn-1:hover {
+	border-color: #fff;
+	color: #fff;
+}
+.animated {
+	animation: mover .5s infinite alternate;
+    -webkit-animation: mover .5s infinite alternate;
+}
+input {
+	background-color: transparent;
+	border:none;
+	border-bottom: 2px solid #fff;
+	opacity: .5;
+	padding: 10px;
+	width: 30%;
+	margin: 0 auto;
+	color: #fff;
+	font-size: 20px;
+	line-height: 24px;
+	transition: all 0.3s ease-out;
+}
+input:focus {
+    outline: none !important;
+    border-bottom: 2px solid #f7e420;
+    opacity: 1;
+}
+.search-icon {
+	margin-left: 10px;
+	color: #fff;
+	opacity: .5;
+	font-size: 20px;
+	transition: all 0.3s ease-out;
+}
+input:focus+ .search-icon {
+	color: #f7e420;
+	opacity: 1;
+}
+::placeholder {
+	color: #fff;
+}
+.row {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}

@@ -1,0 +1,46 @@
+/*movies css*/
+
+.search-bar {
+	margin-bottom: 40px;
+}
+
+.col-50 {
+	-webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.col-50 {
+	position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media only screen and (max-width: 1024px) {
+	.col-50 {
+	-webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}
+.card {
+	padding: 20px;
+	border: 1px solid #f7e420;
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.title-movie {
+	color: transparent;
+  	-webkit-text-stroke-width: 1px;
+  	-webkit-text-stroke-color: #fff;
+}
+.txt-desc {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
