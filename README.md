@@ -6,3 +6,6 @@
 ## How to 
 1. npm install
 2. npm start
+
+## Demo Live
+https://starwars-app-tyoasn.herokuapp.com/
