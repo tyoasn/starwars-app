@@ -5,6 +5,7 @@ import './menu.css';
 class Menu extends Component {
 
 	render() {
+
 		return (
 			<div className="menu-container">
 				<svg className="logo-menu" viewBox="0 0 189.333 107.333">
@@ -15,15 +16,24 @@ class Menu extends Component {
 					<li className="menu-item">
 						<NavLink exact to="/" activeClassName="active">Home</NavLink>
 					</li>
+					<li className="menu-item dropdown">
+						<a className="dropdown-link">Data</a>
+						<i className="fa fa-caret-down dropdown-icon"></i>
+						<ul className="dropdown-menu">
+							<li className="menu-item">
+								<NavLink to="/films" activeClassName="active">Films</NavLink>
+							</li>
+							<li className="menu-item">
+								<NavLink to="/characters" activeClassName="active">Characters</NavLink>
+							</li>
+							<li className="menu-item">
+								<NavLink to="/vehicles" activeClassName="active">Vehicles</NavLink>
+							</li>
+						</ul>
+					</li>
 					<li className="menu-item">
 						<NavLink to="/about" activeClassName="active">About</NavLink>
-					</li>
-					<li className="menu-item">
-						<NavLink to="/movies" activeClassName="active">Movies</NavLink>
-					</li>
-					<li className="menu-item">
-						<NavLink to="/characters" activeClassName="active">Characters</NavLink>
-					</li>
+					</li>					
 				</ul>
 			</div>
 

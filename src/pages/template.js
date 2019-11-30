@@ -4,7 +4,9 @@ import Menu from '../components/menu/menu';
 import Footer from '../components/footer/footer';
 import Home from './home/home';
 import About from './about/about';
-import Movies from './movies/movies';
+import Films from './films/films';
+import Characters from './characters/characters';
+import Vehicles from './vehicles/vehicles';
 
 // function template
 // define route & path
@@ -17,7 +19,9 @@ function Template() {
   	<div className="main-body">
 	    <Route path="/" exact component={Home}/>
 	    <Route path="/about" exact component={About}/>
-	    <Route path="/movies" exact component={Movies}/>
+	    <Route path="/films" exact component={Films}/>
+      <Route path="/characters" exact component={Characters}/>
+      <Route path="/vehicles" exact component={Vehicles}/>
     </div>
     <Footer/>
   	</Router>

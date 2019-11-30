@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import './movies.css';
 import Moment from 'react-moment';
 import API from '../../services/api';
 import Loader from '../../components/loader/loader';
 import { withRouter, Link } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
-class Movies extends Component {
+class Characters extends Component {
 
     // initiate state
     constructor(props) {
       super(props);
       this.state = {
         searchString: "",
-        movies: [],
+        characters: [],
+        page: 1,
+        start: 2,
+        limit:'',
+        isEmpty: true,
+        hasMore: true,
         isLoading: false,
         error: null,
       };
@@ -25,24 +30,28 @@ class Movies extends Component {
     getAPI = () => {
       // show loading before getting data
       this.setState({ isLoading: true });
+      const { page, start } = this.state;
       // remove loading after getting data
-      API.getMovies()
+      API.getCharacters()
           .then((res)=>{
-           // console.log(res.data.results);
+           console.log(res.data.count);
            this.setState({
-             movies: res.data.results,
-             isLoading: false
+             characters: res.data.results,
+             limit: res.data.count,
+             isLoading: false,
+             isEmpty: false
            })
        })
        .catch(error => this.setState({
              error,
-             isLoading: false
+             isLoading: false,
+             isEmpty: true
            }));
     }
 
     componentDidMount() {
       this.setState({
-        movies: this.state.movies
+        characters: this.state.characters
       });
       this.refs.search.focus();
       this.getAPI();
@@ -54,25 +63,38 @@ class Movies extends Component {
       });
     }
 
+    fetchData = () => {
+      if (this.state.characters.length >= this.state.limit) {
+      this.setState({ hasMore: false });
+      return;
+      }
+      const { page, start } = this.state;
+      this.setState({ start: this.state.start + page });
+      API.getCharactersPaginate(start)
+      .then(res => {
+          this.setState({
+            characters: this.state.characters.concat( res.data.results)
+          })
+        })
+      };
+
 
     render() {
 
-      // loading & error handling
-      const { isLoading, error } = this.state;
-        if (error) {
-          return <section id="content"><div className="container text-center"><h1>Error!</h1></div></section>;
-        }
+      // loading
+      const {isLoading} = this.state;
+      
         if (isLoading) {
           return <Loader/>;
         }
 
-      let _movies = this.state.movies;
+      let _characters = this.state.characters;
       let search = this.state.searchString.trim().toLowerCase();
 
       if (search.length > 0) {
-        _movies = _movies.filter(function(movies_item) {
-          // return movies_item.title.toLowerCase().match(search);
-          return movies_item.title.toLocaleLowerCase().indexOf(search) !== -1;
+        _characters = _characters.filter(function(characters_item) {
+          // return characters_item.title.toLowerCase().match(search);
+          return characters_item.name.toLocaleLowerCase().indexOf(search) !== -1;
         });
       }
 
@@ -80,12 +102,12 @@ class Movies extends Component {
         <section id="content">
     			<div className="container">
             <div className="text-center">
-              <h1>Star Wars Films</h1>
+              <h1>Characters</h1>
               {this.state.error &&
-                <h4>Error!</h4> 
+                <section id="content"><div className="container text-center"><h1>Error!</h1></div></section>
               }
               {this.state.isEmpty &&
-                <h4>Data Not Found!</h4> 
+                <section id="content"><div className="container text-center"><h1>Data Not Found!</h1></div></section>
               }
             </div>
               <div className="text-center">
@@ -96,32 +118,36 @@ class Movies extends Component {
                     value={this.state.searchString}
                     ref="search"
                     onChange={this.handleChange}
-                    placeholder="Search title..."
+                    placeholder="Search by name..."
                   />
                   <i className="fa fa-search search-icon"></i>
                 </div>
               </div>
               <div className="row">
-              {_movies.map(i => {
+              <InfiniteScroll
+                dataLength={this.state.characters.length}
+                next={this.fetchData}
+                hasMore={this.state.hasMore}
+                loader={<div className="container text-center"><h1>Loading...</h1></div>}
+                endMessage={<div className="container text-center"><h1>All data loaded.</h1></div>}
+              >
+              {_characters.map(i => {
                 return (
-                <div className="col-50" key={i.episode_id}>
+                <div className="col-50" key={i.name}>
                   <div className="card">
                     <div className="card-body">
                       <div className="div-txt-thumbnail">
-                        <h2 className="title-movie">{i.title}</h2>
-                        <span><i className="fa fa-calendar"></i> <Moment format="D MMMM YYYY" withTitle>{i.release_date}</Moment></span>
-                      </div>
-                      <div className="card-body">
-                        <p className="txt-desc">{i.opening_crawl}</p>
+                        <h2 className="title-films">{i.name}</h2>
                       </div>
                       <div className="card-footer">
-                        <NavLink className="btn-1" to="/">See Detail <i className="fa fa-film"></i></NavLink>
+                        <NavLink className="btn-1" to="/">See Detail <i className="fa fa-location-arrow"></i></NavLink>
                       </div>
                     </div>
                   </div>
                   </div>
                 );
               })}
+              </InfiniteScroll>
             </div>
           </div>
 
@@ -130,4 +156,4 @@ class Movies extends Component {
     }
   }
 
-export default withRouter(Movies);
+export default withRouter(Characters);

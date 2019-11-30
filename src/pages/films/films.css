@@ -1,4 +1,4 @@
-/*movies css*/
+/*films css*/
 
 .search-bar {
 	margin-bottom: 40px;
@@ -9,6 +9,7 @@
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
+    display: inline-block;
 }
 .col-50 {
 	position: relative;
@@ -32,7 +33,7 @@
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
-.title-movie {
+.title-films {
 	color: transparent;
   	-webkit-text-stroke-width: 1px;
   	-webkit-text-stroke-color: #fff;

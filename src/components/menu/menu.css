@@ -21,6 +21,10 @@
 	.logo-menu {
 		width: 60px;
 		height: auto;
+		margin-top: 8px;
+	}
+	.menu-container {
+		padding: 0px 10px 0px 10px;
 	}
 }
 .menu-item {
@@ -37,6 +41,38 @@
 	color: #222;
 	transition: all ease .2s;
 }
+.menu .menu-item:last-child {
+	margin-right: 0px;
+}
 .menu-item .active {
 	border-bottom: 2px solid #222;
+}
+.dropdown-icon {
+	margin-left: 5px;
+}
+.dropdown-menu {
+	position: absolute;
+	top: 60%;
+    background-color: rgba(20, 20, 20,.8);
+    padding: 10px;
+    list-style: none;
+    display: none;
+}
+.dropdown-link {
+	cursor: pointer;
+}
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+.dropdown-menu .menu-item {
+	margin-bottom: 10px;
+	color: #fff;
+	border-bottom: 2px solid transparent;
+}
+.dropdown-menu .menu-item a:hover {
+	color: #fff;
+	border-bottom: 2px solid #fff;
+}
+.dropdown-menu .menu-item .active {
+	border-bottom: 2px solid #fff;
 }
