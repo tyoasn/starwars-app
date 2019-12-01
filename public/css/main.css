@@ -18,7 +18,10 @@ h2 {
 }
 body {
 	font-family: 'Nunito', sans-serif;
-	background-color: #272b30;
+	/*background-color: #272b30;*/
+	background: url(../img/stars.png) top center #000;
+	background-size: cover;
+	background-attachment: fixed;
 	color: #fff;
 }
 a {

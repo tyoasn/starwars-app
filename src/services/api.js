@@ -21,18 +21,24 @@ const Get = (path) => {
 // get movies
 const getFilms = () => Get('films/?page=1');
 const getFilmsPaginate = (start) => Get(`films/?page=${start}`);
+const getSingleFilms = (title) => Get(`films/?search=${title}`);
 const getCharacters = () => Get(`people/?page=1`);
+const getSingleCharacters = (title) => Get(`people/?search=${title}`);
 const getCharactersPaginate = (start) => Get(`people/?page=${start}`);
 const getVehicles = () => Get(`vehicles/?page=1`);
+const getSingleVehicles = (title) => Get(`vehicles/?search=${title}`);
 const getVehiclesPaginate = (start) => Get(`vehicles/?page=${start}`);
 
 // export function
 const API = {
   getFilms,
   getFilmsPaginate,
+  getSingleFilms,
   getCharacters,
+  getSingleCharacters,
   getCharactersPaginate,
   getVehicles,
+  getSingleVehicles,
   getVehiclesPaginate
 
 }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 import API from '../../services/api';
 import Loader from '../../components/loader/loader';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 
@@ -30,11 +29,10 @@ class Characters extends Component {
     getAPI = () => {
       // show loading before getting data
       this.setState({ isLoading: true });
-      const { page, start } = this.state;
       // remove loading after getting data
       API.getCharacters()
           .then((res)=>{
-           console.log(res.data.count);
+           // console.log(res.data.count);
            this.setState({
              characters: res.data.results,
              limit: res.data.count,
@@ -140,7 +138,7 @@ class Characters extends Component {
                         <h2 className="title-films">{i.name}</h2>
                       </div>
                       <div className="card-footer">
-                        <NavLink className="btn-1" to="/">See Detail <i className="fa fa-location-arrow"></i></NavLink>
+                        <Link className="btn-1" to={`/characters/${i.name}`}>See Detail <i className="fa fa-location-arrow"></i></Link>
                       </div>
                     </div>
                   </div>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import API from '../../services/api';
 import Loader from '../../components/loader/loader';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 
@@ -30,7 +30,6 @@ class Vehicles extends Component {
     getAPI = () => {
       // show loading before getting data
       this.setState({ isLoading: true });
-      const { page, start } = this.state;
       // remove loading after getting data
       API.getVehicles()
           .then((res)=>{
@@ -141,7 +140,7 @@ class Vehicles extends Component {
                         <p className="txt-desc"> <i className="fa fa-building"></i> {i.manufacturer}</p>
                       </div>
                       <div className="card-footer">
-                        <NavLink className="btn-1" to="/">See Detail <i className="fa fa-film"></i></NavLink>
+                        <Link className="btn-1" to={`/vehicles/${i.name}`}>See Detail <i className="fa fa-rocket"></i></Link>
                       </div>
                     </div>
                   </div>

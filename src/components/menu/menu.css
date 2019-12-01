@@ -17,16 +17,7 @@
 	width: 100px;
 	fill: #000;
 }
-@media only screen and (max-width: 1024px) {
-	.logo-menu {
-		width: 60px;
-		height: auto;
-		margin-top: 8px;
-	}
-	.menu-container {
-		padding: 0px 10px 0px 10px;
-	}
-}
+
 .menu-item {
 	color: #222;
 	margin-right: 20px;
@@ -75,4 +66,17 @@
 }
 .dropdown-menu .menu-item .active {
 	border-bottom: 2px solid #fff;
+}
+@media only screen and (max-width: 1024px) {
+	.logo-menu {
+		width: 60px;
+		height: auto;
+		margin-top: 8px;
+	}
+	.menu-container {
+		padding: 0px 10px 0px 10px;
+	}
+	.dropdown-menu {
+		top: 80%;
+	}
 }

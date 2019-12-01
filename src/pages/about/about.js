@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom';
 import './about.css';
 
 class About extends Component {
@@ -7,14 +8,23 @@ class About extends Component {
 		return (
 			<section id="content">
 				<div className="container text-center">
-					<h1 className="text-yellow">About</h1>
+					<h1 className="text-yellow">About This App</h1>
 					<p className="text-about">
-						The Star Wars API, or "swapi" (Swah-pee) is the world's first quantified and programmatically-accessible data source for all the data from the Star Wars canon universe!
+						The Star Wars React App is an application built with <b>ReactJS</b> and <b>SWAPI</b> (Star Wars API).
 					</p>
 					<p className="text-about">
-						We've taken all the rich contextual stuff from the universe and formatted into something easier to consume with software. Then we went and stuck an API on the front so you can access it all!
+						All the data is accessible through <b>SWAPI</b> HTTP web API.
 					</p>
 				</div>
+				<div className="container text-center m-20">
+  					<NavLink className="btn-1" to="/films">Films <i className="fa fa-arrow-circle-o-right"></i></NavLink>
+  				</div>
+  				<div className="container text-center m-20">
+  					<NavLink className="btn-1" to="/characters">Characters <i className="fa fa-arrow-circle-o-right"></i></NavLink>
+  				</div>
+  				<div className="container text-center m-20">
+  					<NavLink className="btn-1" to="/vehicles">Vehicles <i className="fa fa-arrow-circle-o-right"></i></NavLink>
+  				</div>
 			</section>
 
 			)

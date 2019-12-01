@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './films.css';
 import Moment from 'react-moment';
 import API from '../../services/api';
 import Loader from '../../components/loader/loader';
-import { withRouter, Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 
@@ -31,7 +30,6 @@ class Films extends Component {
     getAPI = () => {
       // show loading before getting data
       this.setState({ isLoading: true });
-      const { page, start } = this.state;
       // remove loading after getting data
       API.getFilms()
           .then((res)=>{
@@ -143,7 +141,7 @@ class Films extends Component {
                         <p className="txt-desc">{i.opening_crawl}</p>
                       </div>
                       <div className="card-footer">
-                        <NavLink className="btn-1" to="/">See Detail <i className="fa fa-film"></i></NavLink>
+                        <Link className="btn-1" to={`/films/${i.title}`}>See Detail <i className="fa fa-film"></i></Link>
                       </div>
                     </div>
                   </div>

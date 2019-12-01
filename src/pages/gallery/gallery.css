@@ -1,0 +1,11 @@
+/*gallery css*/
+
+.img-gallery {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	cursor: pointer;
+}
+.img-event-container {
+	margin-bottom: 20px;
+}
