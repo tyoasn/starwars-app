@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // define route url
-const RouteAPI = 'https://swapi.co/api';
+const RouteAPI = 'https://swapi.dev/api/';
 
 // function get api
 const Get = (path) => {
